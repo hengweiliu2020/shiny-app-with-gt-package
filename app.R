@@ -5,6 +5,7 @@
 
 
 # Load R packages
+library(haven)
 library(shiny)
 library(shinythemes)
 library(tidyverse)
@@ -526,7 +527,7 @@ server <- function(input, output, session) {
       
       tab_style(
         style = list(
-          cell_fill(color = "#008000")
+          cell_fill(color = "#A9A9A9")
         ),
         locations = cells_body(
           
