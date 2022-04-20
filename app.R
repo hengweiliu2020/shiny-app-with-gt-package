@@ -23,7 +23,7 @@ ui <- fluidPage(theme = shinytheme("united"),
                                inputId = "adsl", 
                                label = "Choose SAS datasets"
                              )), 
-                             
+                           
                            mainPanel(
                              tableOutput("adsl")
                              
@@ -50,10 +50,10 @@ ui <- fluidPage(theme = shinytheme("united"),
                   
                   tabPanel("Two Levels", 
                            mainPanel(tableOutput("bilevel"))
-                           ),
+                  ),
                   tabPanel("Three Levels", 
                            mainPanel(tableOutput("trilevel"))
-                           )
+                  )
                   
                 ) 
 )
@@ -360,7 +360,7 @@ server <- function(input, output, session) {
   })
   
   output$bilevel <- render_gt(
-  
+    
     expr = return(returnTable2()), 
     width=px(800)
   )
@@ -463,7 +463,7 @@ server <- function(input, output, session) {
     
     #sort the ae data by AEBODSYS, AEHLT and descending order in the total column
     df <-final[order(final$AEBODSYS,final$AEHLT, -final$grp3),]
-  
+    
     
     #create the final data df for reporting
     
@@ -496,7 +496,7 @@ server <- function(input, output, session) {
         source_note = "Note: TEAE is defined to be the AEs with start date >= first dose date and <= last dose date + 30."
       ) %>%
       tab_source_note(
-        source_note = "System organ class is in green. High level term is in light gray."
+        source_note = "System organ class is in dark gray. High level term is in light gray."
       ) %>%
       tab_source_note(
         source_note ="The table is sorted by system organ class, high level term and descending order in the total column."
